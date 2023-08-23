@@ -82,23 +82,14 @@ export class LoginComponent {
     })
   }
 
-  data = {
-    userName: 'qwe',
-    password: 'qwe',
-    fistName: 'qwe',
-    lastName: 'qwe',
-    email: 'fds',
-    telephone: 'qwe'
-    }
   addUserForm() {
-
-   this._userService.addUser(this.formGroupSingIn.value).subscribe({
-    next: (val: any) => {
-    },
-    error: (err: any) => {
-      console.error(err)
-    }
-   });
+    this._userService.addUser(this.formGroupSingIn.value).subscribe({
+      next: (val: any) => {
+      },
+      error: (err: any) => {
+        console.error(err)
+      }
+    });
     console.log(this.formGroupSingIn.value);
 
   }

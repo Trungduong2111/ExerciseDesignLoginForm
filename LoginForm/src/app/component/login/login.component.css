@@ -1,0 +1,8 @@
+.formLoginPage {
+    width: 50%;
+    height: 25%;
+    border: 2px;
+    border-style: solid;
+    border-color: brown;
+    padding: 25 px;
+}
