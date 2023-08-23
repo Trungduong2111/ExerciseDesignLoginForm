@@ -1,0 +1,85 @@
+<div class="card">
+    <p-tabMenu [model]="items" [activeItem]="activeItem" (activeItemChange)="onActiveItemChange($event)"></p-tabMenu>
+</div>
+<div *ngIf="formType==='Login'" class="loginForm">
+    <form [formGroup]="formGroupSingIn" (submit)="accountVerification()">
+        <div class="card flex justify-content-center">
+            <div class="flex flex-column gap-2">
+                <label htmlFor="username"> User Name </label>
+                <input pInputText id="userName" aria-describedby="username-help" [(ngModel)]="userName"
+                    formControlName="userName" />
+                <small id="username-help">Enter your username.</small>
+            </div>
+        </div>
+        <div class="flex flex-column gap-2">
+            <label htmlFor="username"> Pass Word </label>
+            <p-password formControlName="value" [feedback]="false" formControlName="password"></p-password>
+            <small id="username-help">Enter your password.</small>
+        </div>
+        <div class="card flex justify-content-center">
+            <button pButton pRipple label="Login" class="p-button-success" type="submit"></button>
+        </div>
+    </form>
+</div>
+<div *ngIf="formType==='Sign Up'" class="SignUpForm">
+    <form [formGroup]="formGroupLogin" (submit)="addUserForm()">
+        <div class="card flex justify-content-center">
+            <div class="flex flex-column gap-2">
+                <label htmlFor="username"> User Name </label>
+                <input pInputText id="userName" aria-describedby="username-help" [(ngModel)]="userName"
+                    formControlName="userName" />
+                <small id="username-help">Enter your username.</small>
+            </div>
+        </div>
+        <div class="card flex justify-content-center">
+            <div class="flex flex-column gap-2">
+                <label htmlFor="password"> User Name </label>
+                <input pInputText id="passwordAdd" aria-describedby="password-help" [(ngModel)]="password"
+                    formControlName="password" />
+                <small id="password-help">Enter your password.</small>
+            </div>
+        </div>
+        <div class="card flex justify-content-center">
+            <div class="flex flex-column gap-2">
+                <label htmlFor="fistName"> fistName </label>
+                <input pInputText id="fistName" aria-describedby="fistName-help" [(ngModel)]="fistName"
+                    formControlName="fistName" />
+                <small id="fistName-help">Enter your fistName.</small>
+            </div>
+        </div>
+        <div class="card flex justify-content-center">
+            <div class="flex flex-column gap-2">
+                <label htmlFor="lastName"> lastName </label>
+                <input pInputText id="lastName" aria-describedby="lastName-help" [(ngModel)]="lastName"
+                    formControlName="lastName" />
+                <small id="lastName-help">Enter your lastName.</small>
+            </div>
+        </div>
+        <div class="card flex justify-content-center">
+            <div class="flex flex-column gap-2">
+                <label htmlFor="email"> email </label>
+                <input pInputText id="email" aria-describedby="email-help" [(ngModel)]="email"
+                    formControlName="email" />
+                <small id="email-help">Enter your email.</small>
+            </div>
+        </div>
+        <div class="card flex justify-content-center">
+            <div class="flex flex-column gap-2">
+                <label htmlFor="dob"> dob </label>
+                <input pInputText id="dob" aria-describedby="dob-help" [(ngModel)]="dob" formControlName="dob" />
+                <small id="dob-help">Enter your dob.</small>
+            </div>
+        </div>
+        <div class="card flex justify-content-center">
+            <div class="flex flex-column gap-2">
+                <label htmlFor="telephone"> telephone </label>
+                <input pInputText id="telephone" aria-describedby="telephone-help" [(ngModel)]="telephone"
+                    formControlName="telephone" />
+                <small id="telephone-help">Enter your telephone.</small>
+            </div>
+        </div>
+        <div class="card flex justify-content-center">
+            <button pButton pRipple label="submit" class="p-button-success" type="submit"></button>
+        </div>
+    </form>
+</div>
