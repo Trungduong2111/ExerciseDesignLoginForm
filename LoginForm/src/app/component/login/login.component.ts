@@ -82,18 +82,24 @@ export class LoginComponent {
     })
   }
 
-  // addUserAPI() {
-  //   this.dataInput = this.formGroupSignIn.value;
-  //   this._userService.addUser(this.dataInput).subscribe({
-  //     next: (val: any) => {
-  //       alert("ad");
-  //     },
-  //     error: (err: any) => {
-  //       console.error(err)
-  //     }
-  //   })
-  // }
+  data = {
+    userName: 'qwe',
+    password: 'qwe',
+    fistName: 'qwe',
+    lastName: 'qwe',
+    email: 'fds',
+    telephone: 'qwe'
+    }
   addUserForm() {
+
+   this._userService.addUser(this.formGroupSingIn.value).subscribe({
+    next: (val: any) => {
+    },
+    error: (err: any) => {
+      console.error(err)
+    }
+   });
     console.log(this.formGroupSingIn.value);
+
   }
 }

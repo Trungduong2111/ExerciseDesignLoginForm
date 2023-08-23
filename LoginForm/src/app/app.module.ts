@@ -12,6 +12,7 @@ import { ButtonModule } from 'primeng/button';
 import { HttpClientModule } from '@angular/common/http';
 import { MessagesModule } from 'primeng/messages';
 import { HomeComponent } from './component/home/home.component';
+import { MenubarModule } from 'primeng/menubar';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HomeComponent } from './component/home/home.component';
     PasswordModule,
     ButtonModule,
     HttpClientModule,
-    MessagesModule
+    MessagesModule,
+    MenubarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
