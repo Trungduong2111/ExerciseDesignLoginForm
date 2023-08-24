@@ -8,6 +8,7 @@ import { MenuItem } from 'primeng/api';
 })
 export class HomeComponent {
     items!: MenuItem[];
+    value!: string;
 
     ngOnInit() {
         this.items = [

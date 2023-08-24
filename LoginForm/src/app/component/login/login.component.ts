@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MenuItem, Message } from 'primeng/api';
+import { MenuItem, Message, MessageService } from 'primeng/api';
 import { AuthService } from 'src/app/service/auth.service';
 import { UserInterface } from 'src/app/user-interface';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [MessageService]
 })
 export class LoginComponent {
   items: MenuItem[] | undefined;
@@ -24,9 +26,10 @@ export class LoginComponent {
   activeItem: MenuItem | undefined;
   formType: any;
   dataUser!: UserInterface[];
+  // messages!: Message[];
 
 
-  constructor(private _userService: AuthService, private router: Router, private _fb: FormBuilder) { }
+  constructor(private _userService: AuthService, private router: Router, private _fb: FormBuilder, private messageService: MessageService) { }
 
   ngOnInit() {
     this.items = [
@@ -49,6 +52,7 @@ export class LoginComponent {
       telephone: new FormControl()
     });
     this.getUserList();
+
   }
   onActiveItemChange(event: MenuItem) {
     this.activeItem = event;
@@ -65,10 +69,12 @@ export class LoginComponent {
       }
     });
     if (result) {
-      alert("");
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Login Success' });
+      // alert("");
       this.router.navigate(['/home']);
     } else {
-      alert("");
+      // alert("");
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Login fail!' });
     }
   }
   getUserList() {
@@ -83,14 +89,21 @@ export class LoginComponent {
   }
 
   addUserForm() {
-    this._userService.addUser(this.formGroupSingIn.value).subscribe({
-      next: (val: any) => {
-      },
-      error: (err: any) => {
-        console.error(err)
-      }
-    });
     console.log(this.formGroupSingIn.value);
+    if (this.formGroupSingIn.value.userName != undefined && this.formGroupSingIn.value.password != undefined) {
+      this._userService.addUser(this.formGroupSingIn.value).subscribe({
+        next: (val: any) => {
+        },
+        error: (err: any) => {
+          console.error(err)
+        }
+      });
+      // console.log(this.formGroupSingIn.value);
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Create User Success' });
+    }
+    else {
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Create User Fail!' });
+    }
 
   }
 }

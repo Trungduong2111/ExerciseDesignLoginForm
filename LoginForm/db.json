@@ -60,6 +60,31 @@
       "userName": "duongnguyen",
       "password": "duongnguyen123",
       "id": 5
+    },
+    {
+      "userName": "haha",
+      "password": "haha",
+      "fistName": "haha",
+      "lastName": "haha",
+      "email": "haha@gmail.com",
+      "dob": "15/7/2022",
+      "telephone": "0978563323",
+      "id": 6
+    },
+    {
+      "userName": "asdas",
+      "password": "d",
+      "fistName": "asd",
+      "lastName": "asd",
+      "email": "asd",
+      "dob": "das",
+      "telephone": "d",
+      "id": 7
+    },
+    {
+      "userName": "asdasd",
+      "password": "asd",
+      "id": 8
     }
   ]
 }

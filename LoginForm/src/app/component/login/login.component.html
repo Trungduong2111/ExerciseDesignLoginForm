@@ -3,8 +3,8 @@
         <p-tabMenu [model]="items" [activeItem]="activeItem"
             (activeItemChange)="onActiveItemChange($event)"></p-tabMenu>
     </div>
-    <div *ngIf="formType==='Login'" class="loginForm container">
-        <form [formGroup]="formGroupLogin" (submit)="accountVerification()">
+    <div *ngIf="formType==='Login'" class="loginForm mt-4">
+        <!-- <form [formGroup]="formGroupLogin" (submit)="accountVerification()">
             <div class="card flex justify-content-center">
                 <div class="flex flex-column gap-2">
                     <label htmlFor="username"> User Name </label>
@@ -21,10 +21,45 @@
             <div class="card flex justify-content-center">
                 <button pButton pRipple label="Login" class="p-button-success" type="submit"></button>
             </div>
-        </form>
+        </form> -->
+
+
+        <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6 m-auto">
+            <div class="text-center mb-5">
+                <div class="text-900 text-3xl font-medium mb-3">Log in</div>
+                <span class="text-600 font-medium line-height-3">Don't have an account?</span>
+                <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Create today!</a>
+            </div>
+            <form [formGroup]="formGroupLogin" (submit)="accountVerification()">
+                <div>
+                    <label for="email1" class="block text-900 font-medium mb-2">User Name</label>
+                    <input id="email1" type="text" placeholder="User Name" pInputText class="w-full mb-3"
+                        [(ngModel)]="userName" formControlName="userName">
+
+                    <label for="password1" class="block text-900 font-medium mb-2">Password</label>
+                    <input id="password1" type="password" placeholder="Password" pInputText class="w-full mb-3"
+                        formControlName="password" [(ngModel)]="password">
+
+                    <div class="flex align-items-center justify-content-between mb-6">
+                        <div class="flex align-items-center">
+                            <p-checkbox id="rememberme" [binary]="true" styleClass="mr-2"></p-checkbox>
+                            <label for="rememberme1">Remember me</label>
+                        </div>
+                        <a class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer">Forgot
+                            password?</a>
+                    </div>
+
+                    <button pButton pRipple label="Sign In" icon="pi pi-user" class="w-full" type="submit"></button>
+                </div>
+            </form>
+        </div>
+        <!-- <div class="card">
+            <p-messages [(value)]="messages" [enableService]="false" [closable]="false"></p-messages>
+        </div> -->
+        <p-toast class="messages"></p-toast>
     </div>
-    <div *ngIf="formType==='Sign Up'" class="SignUpForm">
-        <form [formGroup]="formGroupSingIn" (submit)="addUserForm()">
+    <div *ngIf="formType==='Sign Up'" class="SignUpForm mt-4">
+        <!-- <form [formGroup]="formGroupSingIn" (submit)="addUserForm()">
             <div class="card flex justify-content-center">
                 <div class="flex flex-column gap-2">
                     <label htmlFor="username"> User Name </label>
@@ -83,6 +118,61 @@
             <div class="card flex justify-content-center">
                 <button pButton pRipple label="submit" class="p-button-success" type="submit"></button>
             </div>
-        </form>
+        </form> -->
+        <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6 m-auto">
+            <div class="text-center mb-5">
+                <div class="text-900 text-3xl font-medium mb-3">Sign up</div>
+                <span class="text-600 font-medium line-height-3">Don't have an account?</span>
+                <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Create today!</a>
+            </div>
+            <form [formGroup]="formGroupSingIn" (submit)="addUserForm()">
+                <div class="">
+                    <div class="grid formgrid p-fluid">
+                        <div class="field mb-2 col-6 md:col-6">
+                            <label for="company_name" class="font-medium text-900">User Name</label>
+                            <input id="company_name" type="text" pinputtext="" placeholder="User Name"
+                                class="p-inputtext p-component p-element" [(ngModel)]="userName"
+                                formControlName="userName">
+                        </div>
+                        <div class="field mb-2 col-6 md:col-6">
+                            <label for="invoice_id" class="font-medium text-900">Password</label>
+                            <input id="invoice_id" type="text" pinputtext="" placeholder="Password"
+                                class="p-inputtext p-component p-element" [(ngModel)]="password"
+                                formControlName="password">
+                        </div>
+                        <div class="field mb-2 col-6 md:col-6">
+                            <label for="customer_name" class="font-medium text-900">Fist Name</label>
+                            <input id="customer_name" type="text" pinputtext="" placeholder="Fist Name"
+                                class="p-inputtext p-component p-element" [(ngModel)]="fistName"
+                                formControlName="fistName">
+                        </div>
+                        <div class="field mb-2 col-6 md:col-6">
+                            <label for="customer_email" class="font-medium text-900">Last Name</label>
+                            <input id="customer_email" type="text" pinputtext="" placeholder="Last Name"
+                                class="p-inputtext p-component p-element" [(ngModel)]="lastName"
+                                formControlName="lastName">
+                        </div>
+                        <div class="field mb-2 col-6 md:col-6"><label for="customer_email"
+                                class="font-medium text-900">Customer Email</label>
+                            <input id="customer_email" type="text" pinputtext="" placeholder="Customer Email"
+                                class="p-inputtext p-component p-element" [(ngModel)]="email" formControlName="email">
+                        </div>
+                        <div class="field mb-2 col-6 md:col-6">
+                            <label for="customer_email" class="font-medium text-900">Dob</label>
+                            <input id="customer_email" type="text" pinputtext="" placeholder="Dob"
+                                class="p-inputtext p-component p-element" [(ngModel)]="dob" formControlName="dob">
+                        </div>
+                        <div class="field mb-2 col-6 md:col-6">
+                            <label for="customer_email" class="font-medium text-900">Telephone</label>
+                            <input id="customer_email" type="text" pinputtext="" placeholder="Telephone"
+                                class="p-inputtext p-component p-element" [(ngModel)]="telephone"
+                                formControlName="telephone">
+                        </div>
+                        <button pButton pRipple label="Sign Up" icon="pi pi-user" class="w-full" type="submit"></button>
+                    </div>
+                </div>
+            </form>
+            <p-toast class="messages"></p-toast>
+        </div>
+
     </div>
-</div>

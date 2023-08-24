@@ -13,12 +13,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { MessagesModule } from 'primeng/messages';
 import { HomeComponent } from './component/home/home.component';
 import { MenubarModule } from 'primeng/menubar';
+import { StyleClassModule } from 'primeng/styleclass';
+import { CheckboxModule } from 'primeng/checkbox';
+import { CalendarModule } from 'primeng/calendar';
+import { ToastModule } from 'primeng/toast';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +40,12 @@ import { MenubarModule } from 'primeng/menubar';
     ButtonModule,
     HttpClientModule,
     MessagesModule,
-    MenubarModule
+    MenubarModule,
+    StyleClassModule,
+    CheckboxModule,
+    CalendarModule,
+    ToastModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
