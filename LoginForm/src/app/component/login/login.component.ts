@@ -106,4 +106,8 @@ export class LoginComponent {
     }
 
   }
+
+  navigate(type: string) {
+    this.formType = type;
+  }
 }
