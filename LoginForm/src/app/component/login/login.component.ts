@@ -14,6 +14,8 @@ import { UserInterface } from 'src/app/user-interface';
 })
 export class LoginComponent {
   items: MenuItem[] | undefined;
+  userNameLogin: string | undefined;
+  passwordLogin: string | undefined;
   userName: string | undefined;
   password: string | undefined;
   formGroupLogin!: FormGroup;
@@ -39,8 +41,8 @@ export class LoginComponent {
     this.activeItem = this.items[0];
     this.formType = "Login";
     this.formGroupLogin = new FormGroup({
-      userName: new FormControl(),
-      password: new FormControl()
+      userNameLogin: new FormControl(),
+      passwordLogin: new FormControl()
     });
     this.formGroupSingIn = new FormGroup({
       userName: new FormControl(),
@@ -59,10 +61,11 @@ export class LoginComponent {
     this.formType = event.label;
   }
   accountVerification() {
+    // this.getUserList();
     console.log(this.formGroupLogin.value.userName);
     console.log(this.dataUser);
     const result = this.dataUser.find(item => {
-      if (item.userName === this.formGroupLogin.value.userName && item.password === this.formGroupLogin.value.password) {
+      if (item.userName === this.formGroupLogin.value.userNameLogin && item.password === this.formGroupLogin.value.passwordLogin) {
         return true
       } else {
         return false;
@@ -90,6 +93,7 @@ export class LoginComponent {
 
   addUserForm() {
     console.log(this.formGroupSingIn.value);
+
     if (this.formGroupSingIn.value.userName != undefined && this.formGroupSingIn.value.password != undefined) {
       this._userService.addUser(this.formGroupSingIn.value).subscribe({
         next: (val: any) => {
@@ -100,6 +104,7 @@ export class LoginComponent {
       });
       // console.log(this.formGroupSingIn.value);
       this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Create User Success' });
+      this.getUserList();
     }
     else {
       this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Create User Fail!' });
